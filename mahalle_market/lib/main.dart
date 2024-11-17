@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mahalle_market/view/on_boarding/startup_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      home: const StartupView(),
     );
   }
 }
