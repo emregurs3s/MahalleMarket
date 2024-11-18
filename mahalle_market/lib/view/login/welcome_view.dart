@@ -15,18 +15,16 @@ class _WelcomeViewState extends State<WelcomeView> {
     return Scaffold(
       body: Stack(
         children: [
-          // Arka Plan Görüntüsü
           Container(
             width: media.width,
             height: media.height,
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/img/logo.png'),
-                fit: BoxFit.cover, // Görüntüyü tam ekran yapar
+                fit: BoxFit.cover,
               ),
             ),
           ),
-          // Üst Katman (Mesaj)
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -36,12 +34,12 @@ class _WelcomeViewState extends State<WelcomeView> {
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white, // Yazı rengini beyaz yap
+                    color: Colors.white,
                     shadows: [
                       Shadow(
                         offset: Offset(2, 2),
                         blurRadius: 4.0,
-                        color: Colors.black, // Yazıya gölge ekler
+                        color: Colors.black,
                       ),
                     ],
                   ),
@@ -51,7 +49,7 @@ class _WelcomeViewState extends State<WelcomeView> {
                   'Uygulamamıza giriş yapın!',
                   style: TextStyle(
                     fontSize: 18,
-                    color: Colors.white70, // Hafif beyaz tonlu yazı
+                    color: Colors.white70,
                   ),
                 ),
               ],
