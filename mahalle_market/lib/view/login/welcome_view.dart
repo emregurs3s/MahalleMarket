@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mahalle_market/common/color_extensions.dart';
+import 'package:mahalle_market/common_widget/round_button.dart';
 
 class WelcomeView extends StatefulWidget {
   const WelcomeView({super.key});
@@ -16,45 +18,41 @@ class _WelcomeViewState extends State<WelcomeView> {
       body: Stack(
         children: [
           Container(
-            width: media.width,
-            height: media.height,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/img/logo.png'),
+                image: AssetImage(
+                  'assets/img/logo.png',
+                ),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          Center(
+          Align(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Text(
-                  'Hoş Geldiniz!',
-                  style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    shadows: [
-                      Shadow(
-                        offset: Offset(2, 2),
-                        blurRadius: 4.0,
-                        color: Colors.black,
-                      ),
-                    ],
-                  ),
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  height: media.width * 0.9,
                 ),
-                SizedBox(height: 20),
-                Text(
-                  'Uygulamamıza giriş yapın!',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white70,
-                  ),
+                Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 45),
+                    child: RoundButton(
+                      title: "Giriş Yap",
+                      onPressed: () {},
+                    )),
+                SizedBox(
+                  height: media.width * 0.06,
                 ),
+                Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 45),
+                    child: RoundButton(
+                      type: RoundButtonType.textPrimary,
+                      title: "Kayıt Ol",
+                      onPressed: () {},
+                    )),
               ],
             ),
-          ),
+          )
         ],
       ),
     );

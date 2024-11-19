@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mahalle_market/view/login/login_view.dart';
+import 'package:mahalle_market/view/login/welcome_view.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,13 +25,17 @@ class _StartupViewState extends State<StartupView> {
   @override
   void initState() {
     super.initState();
+    goWelcomePage();
+  }
 
-    Future.delayed(Duration(seconds: 2), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => WelcomeView()),
-      );
-    });
+  void goWelcomePage() async {
+    await Future.delayed(Duration(seconds: 2));
+    WelcomePage();
+  }
+
+  void WelcomePage() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const WelcomeView()));
   }
 
   @override
@@ -49,33 +55,6 @@ class _StartupViewState extends State<StartupView> {
             color: Colors.white,
           ),
         ],
-      ),
-    );
-  }
-}
-
-class WelcomeView extends StatelessWidget {
-  const WelcomeView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Welcome Page")),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Text(
-              'Hoş Geldiniz!',
-              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Uygulamamıza giriş yapın!',
-              style: TextStyle(fontSize: 18),
-            ),
-          ],
-        ),
       ),
     );
   }
