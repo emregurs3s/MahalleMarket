@@ -12,21 +12,30 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sign Up'),
+        title: const Text('Sign Up'),
+        centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(20.0),
         child: Form(
           key: formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              TextFormField(
-                controller: emailController,
-                decoration: InputDecoration(
-                  labelText: 'Email',
-                  border: OutlineInputBorder(),
+              const Text(
+                'Create Your Account',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.teal,
                 ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 20.0),
+              buildTextFormField(
+                controller: emailController,
+                label: 'Email',
+                icon: Icons.email,
                 keyboardType: TextInputType.emailAddress,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -37,13 +46,11 @@ class SignUpPage extends StatelessWidget {
                   return null;
                 },
               ),
-              SizedBox(height: 16.0),
-              TextFormField(
+              const SizedBox(height: 16.0),
+              buildTextFormField(
                 controller: usernameController,
-                decoration: InputDecoration(
-                  labelText: 'Username',
-                  border: OutlineInputBorder(),
-                ),
+                label: 'Username',
+                icon: Icons.person,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your username';
@@ -51,13 +58,11 @@ class SignUpPage extends StatelessWidget {
                   return null;
                 },
               ),
-              SizedBox(height: 16.0),
-              TextFormField(
+              const SizedBox(height: 16.0),
+              buildTextFormField(
                 controller: passwordController,
-                decoration: InputDecoration(
-                  labelText: 'Password',
-                  border: OutlineInputBorder(),
-                ),
+                label: 'Password',
+                icon: Icons.lock,
                 obscureText: true,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -68,13 +73,11 @@ class SignUpPage extends StatelessWidget {
                   return null;
                 },
               ),
-              SizedBox(height: 16.0),
-              TextFormField(
+              const SizedBox(height: 16.0),
+              buildTextFormField(
                 controller: phoneController,
-                decoration: InputDecoration(
-                  labelText: 'Phone Number',
-                  border: OutlineInputBorder(),
-                ),
+                label: 'Phone Number',
+                icon: Icons.phone,
                 keyboardType: TextInputType.phone,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -85,13 +88,11 @@ class SignUpPage extends StatelessWidget {
                   return null;
                 },
               ),
-              SizedBox(height: 16.0),
-              TextFormField(
+              const SizedBox(height: 16.0),
+              buildTextFormField(
                 controller: ageController,
-                decoration: InputDecoration(
-                  labelText: 'Age',
-                  border: OutlineInputBorder(),
-                ),
+                label: 'Age',
+                icon: Icons.calendar_today,
                 keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -103,15 +104,15 @@ class SignUpPage extends StatelessWidget {
                   return null;
                 },
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 30.0),
               ElevatedButton(
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     final email = emailController.text;
                     final username = usernameController.text;
-                    final password = passwordController.text;
                     final phone = phoneController.text;
                     final age = ageController.text;
+
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(
@@ -121,12 +122,49 @@ class SignUpPage extends StatelessWidget {
                     );
                   }
                 },
-                child: Text('Sign Up'),
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(vertical: 15.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.0),
+                  ),
+                  backgroundColor: Colors.teal,
+                ),
+                child: const Text(
+                  'Sign Up',
+                  style: TextStyle(fontSize: 18.0),
+                ),
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget buildTextFormField({
+    required TextEditingController controller,
+    required String label,
+    required IconData icon,
+    bool obscureText = false,
+    TextInputType keyboardType = TextInputType.text,
+    String? Function(String?)? validator,
+  }) {
+    return TextFormField(
+      controller: controller,
+      decoration: InputDecoration(
+        labelText: label,
+        prefixIcon: Icon(icon, color: Colors.teal),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12.0),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12.0),
+          borderSide: const BorderSide(color: Colors.teal),
+        ),
+      ),
+      obscureText: obscureText,
+      keyboardType: keyboardType,
+      validator: validator,
     );
   }
 }
@@ -135,5 +173,8 @@ void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: SignUpPage(),
+    theme: ThemeData(
+      primarySwatch: Colors.teal,
+    ),
   ));
 }
