@@ -80,12 +80,76 @@ class LoginScreen extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
+                      shadowColor: Colors.black.withOpacity(0.3),
+                      elevation: 5,
                       padding:
                           EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                     ),
                     child: Text(
                       "Login",
                       style: TextStyle(fontSize: 18),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    "veya",
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                  SizedBox(height: 20),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                    child: Column(
+                      children: [
+                        ElevatedButton.icon(
+                          onPressed: () {},
+                          icon: Icon(Icons.facebook, color: Colors.white),
+                          label: Text(
+                            "Facebook ile Giriş Yap",
+                            style: TextStyle(fontSize: 16),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blue[700],
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            shadowColor: Colors.black.withOpacity(0.2),
+                            elevation: 5,
+                            padding: EdgeInsets.symmetric(vertical: 15),
+                            minimumSize: Size(double.infinity, 50),
+                          ),
+                        ),
+                        SizedBox(height: 15),
+                        ElevatedButton.icon(
+                          onPressed: () {},
+                          icon: Icon(Icons.g_mobiledata, color: Colors.white),
+                          label: Text(
+                            "Google ile Giriş Yap",
+                            style: TextStyle(fontSize: 16),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.red[700],
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            shadowColor: Colors.black.withOpacity(0.2),
+                            elevation: 5,
+                            padding: EdgeInsets.symmetric(vertical: 15),
+                            minimumSize: Size(double.infinity, 50),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 30),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text(
+                      "Hesabınız yok mu? Kayıt ol",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        decoration: TextDecoration.underline,
+                      ),
                     ),
                   ),
                 ],
