@@ -90,6 +90,18 @@ class LoginScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 18),
                     ),
                   ),
+                  SizedBox(height: 10),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text(
+                      "Şifremi Unuttum",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
                   SizedBox(height: 20),
                   Text(
                     "veya",
