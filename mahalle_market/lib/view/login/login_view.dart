@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mahalle_market/common/color_extensions.dart';
 
 void main() {
   runApp(MyApp());
@@ -38,20 +39,22 @@ class LoginScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: TColor.textfield,
                     ),
                   ),
                   SizedBox(height: 80),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: "Username",
-                        filled: true,
-                        fillColor: Colors.white,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                          borderSide: BorderSide.none,
+                  Container(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: "Username",
+                          filled: true,
+                          fillColor: TColor.textfield,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                            borderSide: BorderSide.none,
+                          ),
                         ),
                       ),
                     ),
@@ -64,7 +67,7 @@ class LoginScreen extends StatelessWidget {
                       decoration: InputDecoration(
                         hintText: "Password",
                         filled: true,
-                        fillColor: Colors.white,
+                        fillColor: TColor.textfield,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20.0),
                           borderSide: BorderSide.none,
@@ -91,21 +94,14 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 10),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Text(
-                      "Şifremi Unuttum",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text("Şifremi Unuttum"),
                   ),
                   SizedBox(height: 20),
                   Text(
                     "veya",
-                    style: TextStyle(color: Colors.white, fontSize: 16),
+                    style: TextStyle(color: TColor.SecondaryText, fontSize: 16),
                   ),
                   SizedBox(height: 20),
                   Padding(
@@ -153,16 +149,9 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 30),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Text(
-                      "Hesabınız yok mu? Kayıt ol",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text("Hesabınız yok mu ? Kayıt ol."),
                   ),
                 ],
               ),
