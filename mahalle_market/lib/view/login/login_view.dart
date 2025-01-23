@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:mahalle_market/common/color_extensions.dart';
 
@@ -162,3 +163,4 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
+
