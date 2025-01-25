@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mahalle_market/common/color_extensions.dart';
 import 'package:mahalle_market/common_widget/round_button.dart';
 import 'package:mahalle_market/common_widget/round_textfield.dart';
+import 'package:mahalle_market/common_widget/round_icon_button.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -51,7 +52,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     obscureText: true,
                   ),
                   SizedBox(height: 30),
-                  RoundButton(title: "Giriş Yap", onPressed: () {}),
+                  SizedBox(
+                    width: 150,
+                    height: 40,
+                    child: RoundButton(
+                      title: "Giriş Yap",
+                      onPressed: () {},
+                    ),
+                  ),
                   SizedBox(height: 10),
                   TextButton(
                     onPressed: () {},
@@ -76,43 +84,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 30.0),
                     child: Column(
                       children: [
-                        ElevatedButton.icon(
-                          onPressed: () {},
-                          icon: Icon(Icons.facebook, color: Colors.white),
-                          label: Text(
-                            "Facebook ile Giriş Yap",
-                            style: TextStyle(fontSize: 16),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blue[700],
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            shadowColor: Colors.black.withOpacity(0.2),
-                            elevation: 5,
-                            padding: EdgeInsets.symmetric(vertical: 15),
-                            minimumSize: Size(double.infinity, 50),
-                          ),
-                        ),
+                        RoundIconButton(
+                            title: "Facebook ile Giriş Yap",
+                            icon: Icons.facebook,
+                            color: Colors.blue,
+                            onPressed: () {}),
                         SizedBox(height: 15),
-                        ElevatedButton.icon(
-                          onPressed: () {},
-                          icon: Icon(Icons.g_mobiledata, color: Colors.white),
-                          label: Text(
-                            "Google ile Giriş Yap",
-                            style: TextStyle(fontSize: 16),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.red[700],
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            shadowColor: Colors.black.withOpacity(0.2),
-                            elevation: 5,
-                            padding: EdgeInsets.symmetric(vertical: 15),
-                            minimumSize: Size(double.infinity, 50),
-                          ),
-                        ),
+                        RoundIconButton(
+                            title: "Google ile Giriş Yap",
+                            icon: Icons.g_mobiledata,
+                            color: Colors.red,
+                            onPressed: () {})
                       ],
                     ),
                   ),
