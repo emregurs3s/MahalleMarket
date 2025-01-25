@@ -1,22 +1,17 @@
-
 import 'package:flutter/material.dart';
 import 'package:mahalle_market/common/color_extensions.dart';
+import 'package:mahalle_market/common_widget/round_button.dart';
+import 'package:mahalle_market/common_widget/round_textfield.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
-    );
-  }
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class LoginScreen extends StatelessWidget {
+class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController txtEmail = TextEditingController();
+  TextEditingController txtPassword = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,65 +39,37 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 80),
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: "Username",
-                          filled: true,
-                          fillColor: TColor.textfield,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                            borderSide: BorderSide.none,
-                          ),
-                        ),
-                      ),
-                    ),
+                  RoundTextfield(
+                    hintText: "Kullanıcı Adı",
+                    controller: txtEmail,
+                    keyboardType: TextInputType.emailAddress,
                   ),
                   SizedBox(height: 20),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                    child: TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        hintText: "Password",
-                        filled: true,
-                        fillColor: TColor.textfield,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                          borderSide: BorderSide.none,
-                        ),
-                      ),
-                    ),
+                  RoundTextfield(
+                    hintText: "Şifre",
+                    controller: txtPassword,
+                    obscureText: true,
                   ),
                   SizedBox(height: 30),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blueAccent,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      shadowColor: Colors.black.withOpacity(0.3),
-                      elevation: 5,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                    ),
-                    child: Text(
-                      "Login",
-                      style: TextStyle(fontSize: 18),
-                    ),
-                  ),
+                  RoundButton(title: "Giriş Yap", onPressed: () {}),
                   SizedBox(height: 10),
                   TextButton(
                     onPressed: () {},
-                    child: Text("Şifremi Unuttum"),
+                    child: Text(
+                      "Şifremi Unuttum",
+                      style: TextStyle(
+                          color: TColor.textfield,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500),
+                    ),
                   ),
                   SizedBox(height: 20),
                   Text(
                     "veya",
-                    style: TextStyle(color: TColor.SecondaryText, fontSize: 16),
+                    style: TextStyle(
+                        color: TColor.SecondaryText,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 20),
                   Padding(
@@ -163,4 +130,3 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
-
