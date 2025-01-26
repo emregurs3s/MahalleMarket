@@ -3,6 +3,7 @@ import 'package:mahalle_market/common/color_extensions.dart';
 import 'package:mahalle_market/common_widget/round_button.dart';
 import 'package:mahalle_market/common_widget/round_textfield.dart';
 import 'package:mahalle_market/common_widget/round_icon_button.dart';
+import 'package:mahalle_market/view/login/sign_up_view.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -100,7 +101,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: 30),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUpPage()));
+                    },
                     child: Text("Hesabınız yok mu ? Kayıt ol."),
                   ),
                 ],
