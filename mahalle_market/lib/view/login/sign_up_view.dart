@@ -1,180 +1,109 @@
 import 'package:flutter/material.dart';
+import 'package:mahalle_market/common/color_extensions.dart';
+import 'package:mahalle_market/common_widget/round_button.dart';
+import 'package:mahalle_market/common_widget/round_icon_button.dart';
+import 'package:mahalle_market/common_widget/round_textfield.dart';
+import 'package:mahalle_market/view/login/login_view.dart';
 
-class SignUpPage extends StatelessWidget {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController usernameController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
-  final TextEditingController ageController = TextEditingController();
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+class SignUpView extends StatefulWidget {
+  const SignUpView({super.key});
+
+  @override
+  State<SignUpView> createState() => _SignUpViewState();
+}
+
+class _SignUpViewState extends State<SignUpView> {
+  TextEditingController txtEmail = TextEditingController();
+  TextEditingController txtPassword = TextEditingController();
+  TextEditingController txtName = TextEditingController();
+  TextEditingController txtSurname = TextEditingController();
+  TextEditingController txtBirthdate = TextEditingController();
+  TextEditingController txtPhone = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sign Up'),
-        centerTitle: true,
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20.0),
-        child: Form(
-          key: formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Text(
-                'Create Your Account',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.teal,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 20.0),
-              buildTextFormField(
-                controller: emailController,
-                label: 'Email',
-                icon: Icons.email,
-                keyboardType: TextInputType.emailAddress,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your email';
-                  } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                    return 'Please enter a valid email';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 16.0),
-              buildTextFormField(
-                controller: usernameController,
-                label: 'Username',
-                icon: Icons.person,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your username';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 16.0),
-              buildTextFormField(
-                controller: passwordController,
-                label: 'Password',
-                icon: Icons.lock,
-                obscureText: true,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your password';
-                  } else if (value.length < 6) {
-                    return 'Password must be at least 6 characters long';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 16.0),
-              buildTextFormField(
-                controller: phoneController,
-                label: 'Phone Number',
-                icon: Icons.phone,
-                keyboardType: TextInputType.phone,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your phone number';
-                  } else if (!RegExp(r'^\d{10,15}$').hasMatch(value)) {
-                    return 'Please enter a valid phone number';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 16.0),
-              buildTextFormField(
-                controller: ageController,
-                label: 'Age',
-                icon: Icons.calendar_today,
-                keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your age';
-                  } else if (int.tryParse(value) == null ||
-                      int.parse(value) < 18) {
-                    return 'Age must be 18 or above';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 30.0),
-              ElevatedButton(
-                onPressed: () {
-                  if (formKey.currentState!.validate()) {
-                    final email = emailController.text;
-                    final username = usernameController.text;
-                    final phone = phoneController.text;
-                    final age = ageController.text;
-
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                          'Sign Up Successful:\nEmail: $email\nUsername: $username\nPhone: $phone\nAge: $age',
-                        ),
-                      ),
-                    );
-                  }
-                },
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 15.0),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0),
+      body: Stack(
+        children: [
+          Center(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  RoundTextfield(
+                    hintText: "İsim",
+                    controller: txtEmail,
+                    keyboardType: TextInputType.emailAddress,
                   ),
-                  backgroundColor: Colors.teal,
-                ),
-                child: const Text(
-                  'Sign Up',
-                  style: TextStyle(fontSize: 18.0),
-                ),
+                  SizedBox(height: 20),
+                  RoundTextfield(
+                    hintText: "Soyisim",
+                    controller: txtSurname,
+                    obscureText: true,
+                  ),
+                  SizedBox(height: 20),
+                  RoundTextfield(
+                    hintText: "E-Posta",
+                    controller: txtEmail,
+                    keyboardType: TextInputType.emailAddress,
+                  ),
+                  SizedBox(height: 20),
+                  RoundTextfield(
+                    hintText: "Doğum Tarihi",
+                    controller: txtPassword,
+                    obscureText: true,
+                  ),
+                  SizedBox(height: 20),
+                  RoundTextfield(
+                    hintText: "Telefon Numarası",
+                    controller: txtEmail,
+                    keyboardType: TextInputType.emailAddress,
+                  ),
+                  SizedBox(height: 20),
+                  RoundTextfield(
+                    hintText: "Şifre",
+                    controller: txtPassword,
+                    obscureText: true,
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  SizedBox(
+                    width: 150,
+                    height: 40,
+                    child: RoundButton(
+                      title: "Giriş Yap",
+                      onPressed: () {},
+                    ),
+                  ),
+                  SizedBox(height: 45),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Şifremi Unuttum",
+                      style: TextStyle(
+                          color: TColor.SecondaryText,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginScreen()));
+                      },
+                      child: Text("Hesabınız var mı ? Giriş Yap.",
+                          style: TextStyle(
+                            color: TColor.SecondaryText,
+                            fontSize: 14,
+                          ))),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
-
-  Widget buildTextFormField({
-    required TextEditingController controller,
-    required String label,
-    required IconData icon,
-    bool obscureText = false,
-    TextInputType keyboardType = TextInputType.text,
-    String? Function(String?)? validator,
-  }) {
-    return TextFormField(
-      controller: controller,
-      decoration: InputDecoration(
-        labelText: label,
-        prefixIcon: Icon(icon, color: Colors.teal),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12.0),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12.0),
-          borderSide: const BorderSide(color: Colors.teal),
-        ),
-      ),
-      obscureText: obscureText,
-      keyboardType: keyboardType,
-      validator: validator,
-    );
-  }
-}
-
-void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: SignUpPage(),
-    theme: ThemeData(
-      primarySwatch: Colors.teal,
-    ),
-  ));
 }
