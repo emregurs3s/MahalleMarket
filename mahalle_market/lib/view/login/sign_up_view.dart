@@ -23,42 +23,61 @@ class _SignUpViewState extends State<SignUpView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF03AB78),
       body: Stack(
         children: [
           Center(
             child: SingleChildScrollView(
               child: Column(
                 children: [
+                  Text(
+                    "Kayıt Ol",
+                    style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      color: TColor.textfield,
+                    ),
+                  ),
+                  Text(
+                    "Kayıt olmak için bilgilerinizi giriniz",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: TColor.textfield,
+                    ),
+                  ),
+                  SizedBox(height: 25),
                   RoundTextfield(
                     hintText: "İsim",
-                    controller: txtEmail,
-                    keyboardType: TextInputType.emailAddress,
+                    controller: txtName,
+                    keyboardType: TextInputType.name,
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 25),
                   RoundTextfield(
                     hintText: "Soyisim",
                     controller: txtSurname,
-                    obscureText: true,
+                    keyboardType: TextInputType.name,
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 25),
                   RoundTextfield(
                     hintText: "E-Posta",
                     controller: txtEmail,
                     keyboardType: TextInputType.emailAddress,
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 25),
                   RoundTextfield(
                     hintText: "Doğum Tarihi",
-                    controller: txtPassword,
-                    obscureText: true,
+                    controller: txtBirthdate,
+                    keyboardType: TextInputType.datetime,
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 25),
                   RoundTextfield(
                     hintText: "Telefon Numarası",
-                    controller: txtEmail,
-                    keyboardType: TextInputType.emailAddress,
+                    controller: txtPhone,
+                    keyboardType: TextInputType.phone,
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 25),
                   RoundTextfield(
                     hintText: "Şifre",
                     controller: txtPassword,
@@ -68,10 +87,10 @@ class _SignUpViewState extends State<SignUpView> {
                     height: 30,
                   ),
                   SizedBox(
-                    width: 150,
-                    height: 40,
+                    width: 440,
+                    height: 50,
                     child: RoundButton(
-                      title: "Giriş Yap",
+                      title: "Kayıt Ol",
                       onPressed: () {},
                     ),
                   ),

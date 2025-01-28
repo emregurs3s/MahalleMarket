@@ -67,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Text(
                       "Şifremi Unuttum",
                       style: TextStyle(
-                          color: TColor.textfield,
+                          color: TColor.SecondaryText,
                           fontSize: 14,
                           fontWeight: FontWeight.w500),
                     ),
@@ -107,7 +107,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           MaterialPageRoute(
                               builder: (context) => SignUpView()));
                     },
-                    child: Text("Hesabınız yok mu ? Kayıt ol."),
+                    child: Text(
+                      "Hesabınız yok mu ? Kayıt ol.",
+                      style: TextStyle(
+                          color: TColor.SecondaryText,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500),
+                    ),
                   ),
                 ],
               ),
