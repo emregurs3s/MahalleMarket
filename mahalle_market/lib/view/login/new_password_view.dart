@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:mahalle_market/common/color_extensions.dart';
 import 'package:mahalle_market/common_widget/round_button.dart';
 import 'package:mahalle_market/common_widget/round_textfield.dart';
-import 'package:mahalle_market/view/login/new_password_view.dart';
+import 'package:mahalle_market/view/login/login_view.dart';
 
-class ResetPasswordView extends StatefulWidget {
-  const ResetPasswordView({super.key});
+class NewPasswordView extends StatefulWidget {
+  const NewPasswordView({super.key});
 
   @override
-  State<ResetPasswordView> createState() => _SignUpViewState();
+  State<NewPasswordView> createState() => _SignUpViewState();
 }
 
-class _SignUpViewState extends State<ResetPasswordView> {
-  TextEditingController txtEmail = TextEditingController();
+class _SignUpViewState extends State<NewPasswordView> {
+  TextEditingController txtPassword = TextEditingController();
+  TextEditingController txtConfirmPassword = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +35,7 @@ class _SignUpViewState extends State<ResetPasswordView> {
                     ),
                   ),
                   Text(
-                    "E-postanızı girdikten sonra e-postanıza gelen linke tıklayarak yeni şifre oluşturunuz",
+                    "Lütfen oluşturmak istediğiniz yeni şifrenizi giriniz",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 14,
@@ -44,8 +45,14 @@ class _SignUpViewState extends State<ResetPasswordView> {
                   ),
                   SizedBox(height: 50),
                   RoundTextfield(
-                    hintText: "E-Posta",
-                    controller: txtEmail,
+                    hintText: "Yeni Şifre",
+                    controller: txtPassword,
+                    keyboardType: TextInputType.emailAddress,
+                  ),
+                  SizedBox(height: 25),
+                  RoundTextfield(
+                    hintText: "Tekrar Yeni Şifre",
+                    controller: txtConfirmPassword,
                     keyboardType: TextInputType.emailAddress,
                   ),
                   SizedBox(height: 25),
@@ -58,7 +65,7 @@ class _SignUpViewState extends State<ResetPasswordView> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => NewPasswordView()));
+                                builder: (context) => LoginScreen()));
                       },
                     ),
                   ),
