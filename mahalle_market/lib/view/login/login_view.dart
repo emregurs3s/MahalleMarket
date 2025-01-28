@@ -3,6 +3,7 @@ import 'package:mahalle_market/common/color_extensions.dart';
 import 'package:mahalle_market/common_widget/round_button.dart';
 import 'package:mahalle_market/common_widget/round_textfield.dart';
 import 'package:mahalle_market/common_widget/round_icon_button.dart';
+import 'package:mahalle_market/view/login/reset_password_view.dart';
 import 'package:mahalle_market/view/login/sign_up_view.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -63,7 +64,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: 10),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ResetPasswordView()));
+                    },
                     child: Text(
                       "Şifremi Unuttum",
                       style: TextStyle(

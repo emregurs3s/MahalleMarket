@@ -4,6 +4,7 @@ import 'package:mahalle_market/common_widget/round_button.dart';
 import 'package:mahalle_market/common_widget/round_icon_button.dart';
 import 'package:mahalle_market/common_widget/round_textfield.dart';
 import 'package:mahalle_market/view/login/login_view.dart';
+import 'package:mahalle_market/view/login/reset_password_view.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
@@ -96,7 +97,12 @@ class _SignUpViewState extends State<SignUpView> {
                   ),
                   SizedBox(height: 45),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ResetPasswordView()));
+                    },
                     child: Text(
                       "Şifremi Unuttum",
                       style: TextStyle(
