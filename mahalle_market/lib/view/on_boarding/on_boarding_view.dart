@@ -33,7 +33,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   ];
   @override
   void initState() {
-    // TODO: implement initState
+  
     super.initState();
     controller.addListener(() {
       setState(() {
@@ -46,7 +46,14 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: [PageView.builder(itemBuilder: (context, index) {})],
+        children: [
+          PageView.builder(itemBuilder: (context, index) {
+            return Container(
+              alignment: Alignment.center,
+              child: Image.asset(),
+            );
+          })
+        ],
       ),
     );
   }
