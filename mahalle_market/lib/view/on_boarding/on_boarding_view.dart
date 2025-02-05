@@ -31,9 +31,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
       "image": "assets/onboarding3.png",
     },
   ];
+
   @override
   void initState() {
-  
     super.initState();
     controller.addListener(() {
       setState(() {
@@ -47,12 +47,64 @@ class _OnBoardingViewState extends State<OnBoardingView> {
     return Scaffold(
       body: Stack(
         children: [
-          PageView.builder(itemBuilder: (context, index) {
-            return Container(
-              alignment: Alignment.center,
-              child: Image.asset(),
-            );
-          })
+          PageView.builder(
+            controller: controller,
+            itemCount: pageArr.length,
+            itemBuilder: (context, index) {
+              var page = pageArr[index];
+              return Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      page["image"],
+                      width: 300,
+                      height: 300,
+                    ),
+                    const SizedBox(height: 20),
+                    Text(
+                      page["title"],
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      page["subtitle"],
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+          Positioned(
+            bottom: 20,
+            left: 0,
+            right: 0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(pageArr.length, (index) {
+                return Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 4),
+                  width: 8,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: selectPage == index ? Colors.blue : Colors.grey,
+                  ),
+                );
+              }),
+            ),
+          ),
         ],
       ),
     );
