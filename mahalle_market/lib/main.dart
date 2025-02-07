@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mahalle_market/view/login/login_view.dart';
+import 'package:mahalle_market/view/on_boarding/on_boarding_view.dart';
 import 'package:mahalle_market/view/on_boarding/startup_view.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const StartupView(),
+      home: const OnBoardingView(),
     );
   }
 }
