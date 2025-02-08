@@ -92,7 +92,6 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               );
             },
           ),
-
           Positioned(
             bottom: 60,
             left: 0,
@@ -112,7 +111,6 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               }),
             ),
           ),
-          // "Sonraki" butonu
           Positioned(
             bottom: 20,
             left: 20,
@@ -125,7 +123,6 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     curve: Curves.easeInOut,
                   );
                 } else {
-                  // Son sayfadaysa ana sayfaya yönlendirme
                   Navigator.pushReplacementNamed(context, "/home");
                 }
               },
