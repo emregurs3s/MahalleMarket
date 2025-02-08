@@ -16,19 +16,19 @@ class _OnBoardingViewState extends State<OnBoardingView> {
       "title": "Mahallenizdeki Marketler Parmaklarınızın Ucunda!",
       "subtitle":
           "Yerel bakkal ve marketlere hızlıca ulaşın, ihtiyaçlarınızı kolayca karşılayın.",
-      "image": "assets/onboarding1.png",
+      "image": "assets/img/splashscreen1.png",
     },
     {
       "title": "Haritadan Keşfet, İletişime Geç!",
       "subtitle":
           "Mahallenizdeki işletmeleri haritada görüntüleyin ve anında iletişim kurun.",
-      "image": "assets/onboarding2.png",
+      "image": "assets/img/splashscreen2.png",
     },
     {
       "title": "Alışverişi Kolaylaştırın!",
       "subtitle":
           "Marketlerin sunduğu ürünleri inceleyin, ihtiyacınızı hızlıca bulun.",
-      "image": "assets/onboarding3.png",
+      "image": "assets/img/splashscreen3.png",
     },
   ];
 
@@ -37,7 +37,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
     super.initState();
     controller.addListener(() {
       setState(() {
-        selectPage = controller.page?.floor() ?? 0;
+        selectPage = controller.page?.round() ?? 0;
       });
     });
   }
@@ -45,11 +45,17 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
           PageView.builder(
             controller: controller,
             itemCount: pageArr.length,
+            onPageChanged: (index) {
+              setState(() {
+                selectPage = index;
+              });
+            },
             itemBuilder: (context, index) {
               var page = pageArr[index];
               return Container(
@@ -87,7 +93,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             },
           ),
           Positioned(
-            bottom: 20,
+            bottom: 60,
             left: 0,
             right: 0,
             child: Row(
@@ -95,14 +101,41 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               children: List.generate(pageArr.length, (index) {
                 return Container(
                   margin: const EdgeInsets.symmetric(horizontal: 4),
-                  width: 8,
-                  height: 8,
+                  width: 10,
+                  height: 10,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: selectPage == index ? Colors.blue : Colors.grey,
+                    color: selectPage == index ? Colors.green : Colors.grey,
                   ),
                 );
               }),
+            ),
+          ),
+          Positioned(
+            bottom: 20,
+            left: 20,
+            right: 20,
+            child: ElevatedButton(
+              onPressed: () {
+                if (selectPage < pageArr.length - 1) {
+                  controller.nextPage(
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeInOut,
+                  );
+                } else {
+                  Navigator.pushReplacementNamed(context, "/home");
+                }
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(vertical: 14),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              child:
+                  Text(selectPage < pageArr.length - 1 ? "Sonraki" : "Başla"),
             ),
           ),
         ],
