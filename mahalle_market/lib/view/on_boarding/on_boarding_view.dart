@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mahalle_market/view/main_tabview/main_tabview.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
@@ -123,7 +124,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     curve: Curves.easeInOut,
                   );
                 } else {
-                  Navigator.pushReplacementNamed(context, "/home");
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MainTabview()));
                 }
               },
               style: ElevatedButton.styleFrom(
