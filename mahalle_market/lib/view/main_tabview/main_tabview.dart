@@ -17,6 +17,8 @@ class _MainTabviewState extends State<MainTabview> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageStorage(bucket: storageBucket, child: selectPageView),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           if (selctTab != 2) {
@@ -28,10 +30,15 @@ class _MainTabviewState extends State<MainTabview> {
           }
         },
         backgroundColor: selctTab == 2 ? TColor.primary : TColor.placeholder,
-        child: Image.asset(
-          "mahalle_market/assets/img/home.png",
-          width: 35,
-          height: 35,
+        child: Container(
+          width: 60,
+          height: 60,
+          alignment: Alignment.center,
+          child: Image.asset(
+            "assets/img/home.png",
+            width: 50,
+            height: 50,
+          ),
         ),
       ),
     );
