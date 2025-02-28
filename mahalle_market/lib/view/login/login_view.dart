@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:mahalle_market/common/color_extensions.dart';
+import 'package:mahalle_market/common_widget/round_button.dart';
+import 'package:mahalle_market/common_widget/round_textfield.dart';
+import 'package:mahalle_market/common_widget/round_icon_button.dart';
+import 'package:mahalle_market/view/login/reset_password_view.dart';
+import 'package:mahalle_market/view/login/sign_up_view.dart';
+import 'package:mahalle_market/view/on_boarding/on_boarding_view.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
-    );
-  }
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class LoginScreen extends StatelessWidget {
+class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController txtEmail = TextEditingController();
+  TextEditingController txtPassword = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,118 +39,93 @@ class LoginScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: TColor.textfield,
                     ),
                   ),
                   SizedBox(height: 80),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: "Username",
-                        filled: true,
-                        fillColor: Colors.white,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                          borderSide: BorderSide.none,
-                        ),
-                      ),
-                    ),
+                  RoundTextfield(
+                    hintText: "Kullanıcı Adı",
+                    controller: txtEmail,
+                    keyboardType: TextInputType.emailAddress,
                   ),
                   SizedBox(height: 20),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                    child: TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        hintText: "Password",
-                        filled: true,
-                        fillColor: Colors.white,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                          borderSide: BorderSide.none,
-                        ),
-                      ),
-                    ),
+                  RoundTextfield(
+                    hintText: "Şifre",
+                    controller: txtPassword,
+                    obscureText: true,
                   ),
                   SizedBox(height: 30),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blueAccent,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      shadowColor: Colors.black.withOpacity(0.3),
-                      elevation: 5,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                  SizedBox(
+                    width: 150,
+                    height: 40,
+                    child: RoundButton(
+                      title: "Giriş Yap",
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => OnBoardingView()),
+                        );
+                      },
                     ),
+                  ),
+                  SizedBox(height: 10),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ResetPasswordView()));
+                    },
                     child: Text(
-                      "Login",
-                      style: TextStyle(fontSize: 18),
+                      "Şifremi Unuttum",
+                      style: TextStyle(
+                          color: TColor.SecondaryText,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500),
                     ),
                   ),
                   SizedBox(height: 20),
                   Text(
                     "veya",
-                    style: TextStyle(color: Colors.white, fontSize: 16),
+                    style: TextStyle(
+                        color: TColor.SecondaryText,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 20),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30.0),
                     child: Column(
                       children: [
-                        ElevatedButton.icon(
-                          onPressed: () {},
-                          icon: Icon(Icons.facebook, color: Colors.white),
-                          label: Text(
-                            "Facebook ile Giriş Yap",
-                            style: TextStyle(fontSize: 16),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blue[700],
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            shadowColor: Colors.black.withOpacity(0.2),
-                            elevation: 5,
-                            padding: EdgeInsets.symmetric(vertical: 15),
-                            minimumSize: Size(double.infinity, 50),
-                          ),
-                        ),
+                        RoundIconButton(
+                            title: "Facebook ile Giriş Yap",
+                            icon: Icons.facebook,
+                            color: Colors.blue,
+                            onPressed: () {}),
                         SizedBox(height: 15),
-                        ElevatedButton.icon(
-                          onPressed: () {},
-                          icon: Icon(Icons.g_mobiledata, color: Colors.white),
-                          label: Text(
-                            "Google ile Giriş Yap",
-                            style: TextStyle(fontSize: 16),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.red[700],
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            shadowColor: Colors.black.withOpacity(0.2),
-                            elevation: 5,
-                            padding: EdgeInsets.symmetric(vertical: 15),
-                            minimumSize: Size(double.infinity, 50),
-                          ),
-                        ),
+                        RoundIconButton(
+                            title: "Google ile Giriş Yap",
+                            icon: Icons.g_mobiledata,
+                            color: Colors.red,
+                            onPressed: () {})
                       ],
                     ),
                   ),
                   SizedBox(height: 30),
-                  GestureDetector(
-                    onTap: () {},
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUpView()));
+                    },
                     child: Text(
-                      "Hesabınız yok mu? Kayıt ol",
+                      "Hesabınız yok mu ? Kayıt ol.",
                       style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        decoration: TextDecoration.underline,
-                      ),
+                          color: TColor.SecondaryText,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500),
                     ),
                   ),
                 ],
