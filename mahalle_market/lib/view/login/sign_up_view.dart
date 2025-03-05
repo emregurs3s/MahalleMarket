@@ -4,6 +4,7 @@ import 'package:mahalle_market/common_widget/round_button.dart';
 import 'package:mahalle_market/common_widget/round_icon_button.dart';
 import 'package:mahalle_market/common_widget/round_textfield.dart';
 import 'package:mahalle_market/view/login/login_view.dart';
+import 'package:mahalle_market/view/login/otp_view.dart';
 import 'package:mahalle_market/view/login/reset_password_view.dart';
 
 class SignUpView extends StatefulWidget {
@@ -92,7 +93,10 @@ class _SignUpViewState extends State<SignUpView> {
                     height: 50,
                     child: RoundButton(
                       title: "Kayıt Ol",
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => OtpView()));
+                      },
                     ),
                   ),
                   SizedBox(height: 45),
