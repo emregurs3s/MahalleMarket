@@ -5,6 +5,7 @@ import 'package:mahalle_market/common_widget/round_textfield.dart';
 import 'package:mahalle_market/common_widget/round_icon_button.dart';
 import 'package:mahalle_market/view/login/reset_password_view.dart';
 import 'package:mahalle_market/view/login/sign_up_view.dart';
+import 'package:mahalle_market/view/on_boarding/on_boarding_view.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -59,7 +60,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 40,
                     child: RoundButton(
                       title: "Giriş Yap",
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => OnBoardingView()),
+                        );
+                      },
                     ),
                   ),
                   SizedBox(height: 10),
