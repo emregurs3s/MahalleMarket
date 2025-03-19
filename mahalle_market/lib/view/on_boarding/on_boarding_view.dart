@@ -124,8 +124,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     curve: Curves.easeInOut,
                   );
                 } else {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => MainTabview()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MainTabView()));
                 }
               },
               style: ElevatedButton.styleFrom(

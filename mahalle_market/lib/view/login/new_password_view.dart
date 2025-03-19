@@ -17,7 +17,7 @@ class _SignUpViewState extends State<NewPasswordView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF03AB78),
+      backgroundColor: const Color(0xFF03AB78),
       body: Stack(
         children: [
           Container(
@@ -25,7 +25,7 @@ class _SignUpViewState extends State<NewPasswordView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: 60),
+                  const SizedBox(height: 60),
                   Text(
                     "Şifre Yenileme",
                     style: TextStyle(
@@ -43,19 +43,19 @@ class _SignUpViewState extends State<NewPasswordView> {
                       color: TColor.textfield,
                     ),
                   ),
-                  SizedBox(height: 50),
+                  const SizedBox(height: 50),
                   RoundTextfield(
                     hintText: "Yeni Şifre",
                     controller: txtPassword,
                     keyboardType: TextInputType.emailAddress,
                   ),
-                  SizedBox(height: 25),
+                  const SizedBox(height: 25),
                   RoundTextfield(
                     hintText: "Tekrar Yeni Şifre",
                     controller: txtConfirmPassword,
                     keyboardType: TextInputType.emailAddress,
                   ),
-                  SizedBox(height: 25),
+                  const SizedBox(height: 25),
                   SizedBox(
                     width: 440,
                     height: 50,

@@ -16,7 +16,7 @@ class _SignUpViewState extends State<ResetPasswordView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF03AB78),
+      backgroundColor: const Color(0xFF03AB78),
       body: Stack(
         children: [
           Container(
@@ -24,7 +24,7 @@ class _SignUpViewState extends State<ResetPasswordView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: 60),
+                  const SizedBox(height: 60),
                   Text(
                     "Şifre Yenileme",
                     style: TextStyle(
@@ -42,13 +42,13 @@ class _SignUpViewState extends State<ResetPasswordView> {
                       color: TColor.textfield,
                     ),
                   ),
-                  SizedBox(height: 50),
+                  const SizedBox(height: 50),
                   RoundTextfield(
                     hintText: "E-Posta",
                     controller: txtEmail,
                     keyboardType: TextInputType.emailAddress,
                   ),
-                  SizedBox(height: 25),
+                  const SizedBox(height: 25),
                   SizedBox(
                     width: 440,
                     height: 50,
@@ -58,7 +58,7 @@ class _SignUpViewState extends State<ResetPasswordView> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => NewPasswordView()));
+                                builder: (context) => const NewPasswordView()));
                       },
                     ),
                   ),
