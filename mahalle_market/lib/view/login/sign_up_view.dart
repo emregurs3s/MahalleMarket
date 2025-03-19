@@ -25,7 +25,7 @@ class _SignUpViewState extends State<SignUpView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF03AB78),
+      backgroundColor: const Color(0xFF03AB78),
       body: Stack(
         children: [
           Center(
@@ -49,43 +49,43 @@ class _SignUpViewState extends State<SignUpView> {
                       color: TColor.textfield,
                     ),
                   ),
-                  SizedBox(height: 25),
+                  const SizedBox(height: 25),
                   RoundTextfield(
                     hintText: "İsim",
                     controller: txtName,
                     keyboardType: TextInputType.name,
                   ),
-                  SizedBox(height: 25),
+                  const SizedBox(height: 25),
                   RoundTextfield(
                     hintText: "Soyisim",
                     controller: txtSurname,
                     keyboardType: TextInputType.name,
                   ),
-                  SizedBox(height: 25),
+                  const SizedBox(height: 25),
                   RoundTextfield(
                     hintText: "E-Posta",
                     controller: txtEmail,
                     keyboardType: TextInputType.emailAddress,
                   ),
-                  SizedBox(height: 25),
+                  const SizedBox(height: 25),
                   RoundTextfield(
                     hintText: "Doğum Tarihi",
                     controller: txtBirthdate,
                     keyboardType: TextInputType.datetime,
                   ),
-                  SizedBox(height: 25),
+                  const SizedBox(height: 25),
                   RoundTextfield(
                     hintText: "Telefon Numarası",
                     controller: txtPhone,
                     keyboardType: TextInputType.phone,
                   ),
-                  SizedBox(height: 25),
+                  const SizedBox(height: 25),
                   RoundTextfield(
                     hintText: "Şifre",
                     controller: txtPassword,
                     obscureText: true,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   SizedBox(
@@ -95,17 +95,17 @@ class _SignUpViewState extends State<SignUpView> {
                       title: "Kayıt Ol",
                       onPressed: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => OtpView()));
+                            MaterialPageRoute(builder: (context) => const OtpView()));
                       },
                     ),
                   ),
-                  SizedBox(height: 45),
+                  const SizedBox(height: 45),
                   TextButton(
                     onPressed: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ResetPasswordView()));
+                              builder: (context) => const ResetPasswordView()));
                     },
                     child: Text(
                       "Şifremi Unuttum",

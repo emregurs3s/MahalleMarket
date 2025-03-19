@@ -21,7 +21,7 @@ class RoundIconButton extends StatelessWidget {
               .white), //Icon(Icons.facebook, color: Colors.white)// ,icon: Icon(Icons.g_mobiledata, color: Colors.white),
       label: Text(
         title,
-        style: TextStyle(fontSize: 16),
+        style: const TextStyle(fontSize: 16),
       ),
       style: ElevatedButton.styleFrom(
         backgroundColor: color,
@@ -30,8 +30,8 @@ class RoundIconButton extends StatelessWidget {
         ),
         shadowColor: Colors.black.withOpacity(0.2),
         elevation: 5,
-        padding: EdgeInsets.symmetric(vertical: 15),
-        minimumSize: Size(double.infinity, 50),
+        padding: const EdgeInsets.symmetric(vertical: 15),
+        minimumSize: const Size(double.infinity, 50),
       ),
     );
   }

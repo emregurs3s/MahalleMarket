@@ -16,7 +16,7 @@ class _SignUpViewState extends State<OtpView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF03AB78),
+      backgroundColor: const Color(0xFF03AB78),
       body: Stack(
         children: [
           Center(
@@ -24,7 +24,7 @@ class _SignUpViewState extends State<OtpView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: 60),
+                  const SizedBox(height: 60),
                   Text(
                     "Telefonunuza kod gönderdik",
                     style: TextStyle(
@@ -145,7 +145,7 @@ class _SignUpViewState extends State<OtpView> {
                           OtpPinFieldDecoration.defaultPinBoxDecoration,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   SizedBox(
