@@ -5,8 +5,11 @@ import 'package:mahalle_market/common_widget/round_textfield.dart';
 import 'package:mahalle_market/common_widget/round_icon_button.dart';
 import 'package:mahalle_market/view/login/reset_password_view.dart';
 import 'package:mahalle_market/view/login/sign_up_view.dart';
+import 'package:mahalle_market/view/on_boarding/on_boarding_view.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -21,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/img/logo.png'),
                 fit: BoxFit.cover,
@@ -41,34 +44,40 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: TColor.textfield,
                     ),
                   ),
-                  SizedBox(height: 80),
+                  const SizedBox(height: 80),
                   RoundTextfield(
                     hintText: "Kullanıcı Adı",
                     controller: txtEmail,
                     keyboardType: TextInputType.emailAddress,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   RoundTextfield(
                     hintText: "Şifre",
                     controller: txtPassword,
                     obscureText: true,
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   SizedBox(
                     width: 150,
                     height: 40,
                     child: RoundButton(
                       title: "Giriş Yap",
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const OnBoardingView()),
+                        );
+                      },
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextButton(
                     onPressed: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ResetPasswordView()));
+                              builder: (context) => const ResetPasswordView()));
                     },
                     child: Text(
                       "Şifremi Unuttum",
@@ -78,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontWeight: FontWeight.w500),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Text(
                     "veya",
                     style: TextStyle(
@@ -86,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontSize: 16,
                         fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30.0),
                     child: Column(
@@ -96,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             icon: Icons.facebook,
                             color: Colors.blue,
                             onPressed: () {}),
-                        SizedBox(height: 15),
+                        const SizedBox(height: 15),
                         RoundIconButton(
                             title: "Google ile Giriş Yap",
                             icon: Icons.g_mobiledata,
@@ -105,13 +114,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   TextButton(
                     onPressed: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SignUpView()));
+                              builder: (context) => const SignUpView()));
                     },
                     child: Text(
                       "Hesabınız yok mu ? Kayıt ol.",

@@ -5,9 +5,11 @@ import 'package:mahalle_market/view/login/welcome_view.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: StartupView(),
     );
@@ -29,7 +31,7 @@ class _StartupViewState extends State<StartupView> {
   }
 
   void goWelcomePage() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
     WelcomePage();
   }
 
